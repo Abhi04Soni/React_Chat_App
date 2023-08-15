@@ -23,14 +23,17 @@ function SignUp () {
     const storageRef = ref(storage, displayName)
 
     const uploadTask = uploadBytesResumable(storageRef, file)
-    uploadTask.on('state_changed',
+    uploadTask.on(
+      (err) => {
+        seterr(err)
+      },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then(async downloadURL => {
           await updateProfile(res.user, {
             displayName,
             photoURL: downloadURL
           })
-          await setDoc(doc(db, 'users', res.user.uid), {
+          await setDoc(doc(db, "users", res.user.uid), {
             uid: res.user.uid,
             displayName,
             email,
@@ -39,7 +42,7 @@ function SignUp () {
         })
       }
     )
-    // .then((data) => { console.log(data) } )
+    // {  console.log(data)}
     await setDoc(doc(db, 'userChats', res.user.uid), {})
     navigate('/ChatPage')
   }
