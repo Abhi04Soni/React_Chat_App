@@ -17,4 +17,4 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 export const db = getFirestore();
-export const storage = getStorage(app , "gs://chatapp-c8bea.appspot.com/");
+export const storage = getStorage();
