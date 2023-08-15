@@ -1,0 +1,77 @@
+body{
+  background-color: #1a1a1d;
+  color: aliceblue;
+}
+
+.nav-ul{
+list-style: none;
+}
+.nav-ul li img{
+  height: 70px;
+  width: 70px;
+  /* margin: 2em 0  1em 0; */
+  /* box-sizing: border-box; */
+}
+.logincontainer{
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loginform{
+  background-color: #950940;
+  padding: 20px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns:100px  200px ;
+}
+.loginform input{
+  margin: 10px;
+}
+button{
+  background-color: #777777;
+  color: white;
+  outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  grid-column: 1 / span 2;
+}
+span{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+.signup-container{
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.signupform{
+  background-color: #950940;
+  padding: 20px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns:100px  200px ;
+}
+
+.signupform input{
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+.wlcm-container{
+  width: 100vw;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
