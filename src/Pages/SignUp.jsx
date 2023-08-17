@@ -5,6 +5,7 @@ import { doc, setDoc } from 'firebase/firestore'
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
 import { db } from '../Firebase/Firebase'
 import { useNavigate } from 'react-router-dom'
+import down from "../Images/download.png"
 
 function SignUp () {
   const [err, seterr] = useState(false)
@@ -16,7 +17,7 @@ function SignUp () {
     const email = e.target[1].value
     const password = e.target[2].value
     const cPassword = e.target[3].value
-    const file = e.target[4].value
+    const file = e.target[4].files[0];
 
     const res = await createUserWithEmailAndPassword(auth, email, password)
 
@@ -25,15 +26,16 @@ function SignUp () {
     const uploadTask = uploadBytesResumable(storageRef, file)
     uploadTask.on(
       (err) => {
-        seterr(err)
+        seterr(err);
+        console.log(err);
       },
       () => {
-        getDownloadURL(uploadTask.snapshot.ref).then(async downloadURL => {
+        getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
           await updateProfile(res.user, {
             displayName,
             photoURL: downloadURL
           })
-          await setDoc(doc(db, "users", res.user.uid), {
+          await setDoc(doc(db, 'users', res.user.uid), {
             uid: res.user.uid,
             displayName,
             email,
@@ -42,7 +44,6 @@ function SignUp () {
         })
       }
     )
-    // {  console.log(data)}
     await setDoc(doc(db, 'userChats', res.user.uid), {})
     navigate('/ChatPage')
   }
@@ -58,7 +59,11 @@ function SignUp () {
         <input type='password' />
         <span>Confirm Password</span>
         <input type='password' />
-        <input type='file' />
+        <input required style={{ display: "none" }} type="file" id="file" />
+          <label htmlFor="file">
+            <img src={down} alt="" />
+            <span>Add an avatar</span>
+          </label>
         <button>Sign-Up</button>
         {err && <span> Something went wrong</span>}
       </form>
