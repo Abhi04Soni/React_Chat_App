@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../Firebase/Firebase'
 import { useNavigate } from 'react-router-dom'
-// import { AuthContext } from '../context/AuthContext'
+
 
 function Login () {
   const [err, seterr] = useState(false)

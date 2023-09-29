@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
-import { auth, storage } from '../Firebase/Firebase'
+import { db, auth, storage } from '../Firebase/Firebase'
 import { doc, setDoc } from 'firebase/firestore'
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
-import { db } from '../Firebase/Firebase'
-import { useNavigate } from 'react-router-dom'
-import down from "../Images/download.png"
+import down from "../Images/img/addAvatar.png"
 
 function SignUp () {
   const [err, seterr] = useState(false)

@@ -61,7 +61,7 @@
     display: flex;
     height: 58vh;
     flex-direction: column;
-    justify-content:end;
+    justify-content:flex-end;
 }
 .rightmid input{
     padding: 10px;
@@ -103,7 +103,7 @@
     border-radius: 5px 5px 0 5px;
     margin: 15px;
 }
-.messeges-container{
+.messeges-containe{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -134,4 +134,15 @@
 .Search-container input:focus{
     border: none;
     outline: none;
+}
+.fileImage{
+    height: 30px;
+    width: 30px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+.dp{
+    height: 50px;
+    width: 40px;
+    border-radius: 50%;
 }

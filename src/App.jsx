@@ -4,16 +4,15 @@ import Login from './Pages/Login'
 import SignUp from './Pages/SignUp'
 import Wlcom from './Pages/Wlcom'
 import ChatPage from './Pages/ChatPage'
+import './App.css'
 
 import { AuthContext } from './context/AuthContext'
-import { Route, Routes, BrowserRouter } from 'react-router-dom'
+import { Route, Routes, BrowserRouter ,Navigate} from 'react-router-dom'
 
-import './App.css'
-import { Navigate } from 'react-router-dom'
 
 function App () {
   const { currentUser } = useContext(AuthContext)
-  // console.log(currentUser)
+
 
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
