@@ -24,16 +24,15 @@ function Login () {
     }
   }
     return (
-      <div className='logincontainer'>
-        <form className='loginform' onSubmit={loginSubmitHandler}>
-          <span>Email</span>
+      <div className='formContainer'>
+        <form className='formWrapper' onSubmit={loginSubmitHandler}>
+          <span className="title">Email</span>
           <input type='email' />
-
-          <span>Password</span>
+          <span className="title">Password</span>
           <input type='password' />
 
           <button>Login</button>
-          {err && <span> Something went wrong</span>}
+          {err && <span className='title'> Something went wrong</span>}
         </form>
       </div>
     )

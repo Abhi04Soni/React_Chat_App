@@ -1,10 +1,10 @@
-import React, {  useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { db, auth, storage } from '../Firebase/Firebase'
 import { doc, setDoc } from 'firebase/firestore'
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
-import down from "../Images/img/addAvatar.png"
+import down from '../Images/img/addAvatar.png'
 
 function SignUp () {
   const [err, seterr] = useState(false)
@@ -16,7 +16,7 @@ function SignUp () {
     const email = e.target[1].value
     const password = e.target[2].value
     const cPassword = e.target[3].value
-    const file = e.target[4].files[0];
+    const file = e.target[4].files[0]
 
     const res = await createUserWithEmailAndPassword(auth, email, password)
 
@@ -24,12 +24,12 @@ function SignUp () {
 
     const uploadTask = uploadBytesResumable(storageRef, file)
     uploadTask.on(
-      (err) => {
-        seterr(err);
-        console.log(err);
+      err => {
+        seterr(err)
+        console.log(err)
       },
       () => {
-        getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+        getDownloadURL(uploadTask.snapshot.ref).then(async downloadURL => {
           await updateProfile(res.user, {
             displayName,
             photoURL: downloadURL
@@ -48,24 +48,27 @@ function SignUp () {
   }
 
   return (
-    <div className='signup-container'>
-      <form className='signupform' onSubmit={submitHnadler}>
-        <span>Name</span>
-        <input type='text' />
-        <span>Email</span>
-        <input type='email' />
-        <span>Set Password</span>
-        <input type='password' />
-        <span>Confirm Password</span>
-        <input type='password' />
-        <input required style={{ display: "none" }} type="file" id="file" />
-          <label htmlFor="file">
-            <img src={down} alt="" />
+    <div className='formContainer'>
+      <div className='formWrapper'>
+        <form  onSubmit={submitHnadler}>
+        <span className="logo">SignUp</span>
+          <span className='title'>Name</span>
+          <input type='text' />
+          <span className='title'>Email</span>
+          <input type='email' />
+          <span className='title'>Set Password</span>
+          <input type='password' />
+          <span className='title'>Confirm Password</span>
+          <input type='password' />
+          <input required style={{ display: 'none' }} type='file' id='file' />
+          <label htmlFor='file'>
+            <img src={down} alt='' />
             <span>Add an avatar</span>
           </label>
-        <button>Sign-Up</button>
-        {err && <span> Something went wrong</span>}
-      </form>
+          <button>Sign-Up</button>
+          {err && <span className='title'> Something went wrong</span>}
+        </form>
+      </div>
     </div>
   )
 }

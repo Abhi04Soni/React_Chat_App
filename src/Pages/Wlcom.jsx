@@ -9,12 +9,13 @@ function Wlcom() {
 
 
   return (
-      <div className='wlcm-container'>
-          <h1>Welcome to React Chat Room</h1>
-          <div className="butts">
+      <div className='formContainer'>
+          <div className="formWrapper">
+          <h1 className='logo'>Welcome to React Chat Room</h1>
               <button onClick={() => (navigate('/Sign-Up')) }>Create a Account</button>
-              <span>Already a User <Link to={`Login`}> Login </Link></span>
-          </div>
+              <span className='title'>Already a User <Link to={`Login`}> Login </Link></span>
+              </div>
+             
       </div>
   )
 }

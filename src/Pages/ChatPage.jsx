@@ -1,12 +1,12 @@
 import React from 'react'
 import RightSide from '../Components/ChatPage/RightSide'
 import LeftSide from '../Components/ChatPage/LeftSide'
-import './ChatPage.css'
+import './ChatPage.scss'
 
 function ChatPage () {
   return (
-    <div className='chat-container'>
-      <div className='mid'>
+    <div className='home'>
+      <div className='container'>
         <LeftSide />
         <RightSide />
       </div>
