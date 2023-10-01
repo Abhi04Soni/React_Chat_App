@@ -9,7 +9,7 @@ const RightSide = () => {
   return (
     <div className="chat">
       <div className="chatInfo">
-        <img src={data.user.photoURL} alt="" />
+        <img className="profile" src={data.user.photoURL} alt="" />
         <span>{data.user?.displayName}</span>
       </div>
       <Messages />

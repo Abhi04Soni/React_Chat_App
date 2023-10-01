@@ -108,12 +108,15 @@
   
         .navbar {
           display: flex;
+        //   flex-direction: row;
           align-items: center;
           background-color: #2f2d52;
           height: 50px;
           padding: 10px;
           justify-content: space-between;
           color: #ddddf7;
+
+          
   
           .logo {
             font-weight: bold;
@@ -125,14 +128,16 @@
           .user {
             display: flex;
             gap: 10px;
+            justify-content: space-between;
+            align-items: center;
   
-            img {
-              background-color: #ddddf7;
-              height: 24px;
-              width: 24px;
-              border-radius: 50%;
-              object-fit: cover;
-            }
+            .profile{
+                // background-color: #ddddf7;
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+             }
   
             button {
               background-color:#3500d3;
@@ -209,7 +214,7 @@
           padding: 10px;
           color: lightgray;
         }
-        img {
+        .profile {
             padding-right: 10px;
             width: 30px;
             height: 30px;
@@ -241,7 +246,7 @@
             .messageInfo {
               display: flex;
               flex-direction: column;
-              color: gray;
+              color: rgb(173, 100, 100);
               font-weight: 300;
   
               img {
@@ -258,7 +263,7 @@
               gap: 10px;
   
               p {
-                background-color: white;
+                background-color: #3e3163;
                 padding: 10px 20px;
                 border-radius: 0px 10px 10px 10px;
                 max-width: max-content;
